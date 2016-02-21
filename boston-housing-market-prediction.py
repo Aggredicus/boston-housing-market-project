@@ -5,6 +5,7 @@ from sklearn import datasets
 from sklearn.tree import DecisionTreeRegressor
 
 # Make matplotlib show our plots inline (nicely formatted in the notebook)
+# (Commented out when no longer in Jupyter)
 # %matplotlib inline
 
 # Create our client's feature set for which we will be predicting a selling price
@@ -16,3 +17,13 @@ city_data = datasets.load_boston()
 # Initialize the housing prices and housing features
 housing_prices = city_data.target
 housing_features = city_data.data
+
+# Feature Exploration
+
+## List the feature categories
+feature_labels = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
+
+## Split the dataset into isolated arrays
+for label in feature_labels:
+    feature_position = feature_labels.index('%s' % label)
+    label = housing_features[:, feature_position]

@@ -28,6 +28,8 @@ for label in feature_labels:
     feature_position = feature_labels.index('%s' % label)
     label = housing_features[:, feature_position]
 
+
+
 # Put any import statements you need for this code block here
 from sklearn import cross_validation
 
@@ -59,6 +61,8 @@ def performance_metric(y_true, y_predict):
     return error
 
 # Put any import statements you need for this code block
+from sklearn.metrics import make_scorer
+from sklearn.grid_search import GridSearchCV
 
 def fit_model(X, y):
     """ Tunes a decision tree regressor model using GridSearchCV on the input data X
@@ -71,10 +75,10 @@ def fit_model(X, y):
     parameters = {'max_depth':(1,2,3,4,5,6,7,8,9,10)}
 
     # Make an appropriate scoring function
-    scoring_function = None
+    scoring_function = make_scorer(performance_metric)
 
     # Make the GridSearchCV object
-    reg = None
+    reg = GridSearchCV(regressor, parameters)
 
     # Fit the learner to the data to obtain the optimal model with tuned parameters
     reg.fit(X, y)

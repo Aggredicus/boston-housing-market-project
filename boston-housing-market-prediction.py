@@ -86,7 +86,7 @@ def learning_curves(X_train, y_train, X_test, y_test):
     """ Calculates the performance of several models with varying sizes of training data.
         The learning and testing error rates for each model are then plotted. """
 
-    print "Creating learning curve graphs for max_depths of 1, 3, 6, and 10. . ."
+    print("Creating learning curve graphs for max_depths of 1, 3, 6, and 10. . .")
 
     # Create the figure window
     fig = pl.figure(figsize=(10,8))
@@ -132,7 +132,7 @@ def model_complexity(X_train, y_train, X_test, y_test):
     """ Calculates the performance of the model as model complexity increases.
         The learning and testing errors rates are then plotted. """
 
-    print "Creating a model complexity graph. . . "
+    print("Creating a model complexity graph. . . ")
 
     # We will vary the max_depth of a decision tree model from 1 to 14
     max_depth = np.arange(1, 14)

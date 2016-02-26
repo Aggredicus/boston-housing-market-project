@@ -23,12 +23,22 @@ housing_features = city_data.data
 ## List the feature categories
 feature_labels = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
 
-## Split the dataset into isolated arrays
-for label in feature_labels:
-    feature_position = feature_labels.index('%s' % label)
-    label = housing_features[:, feature_position]
+selected_features = ['NOX', 'RM', 'LSTAT']
 
+## Split the dataset into chosen, isolated arrays
 
+####### Needs some tender love and care!~
+#
+# def feature_select(feature_data, feature_labels_array, selected_features_array):
+#     """ Takes the existing data and deletes columns
+#     which have not been selected for use in
+#     constructing the model"""
+#
+#    for selection in feature_labels_array:
+#        if selected_features_array not in feature_labels_array:
+#            np.delete(feature_data[selection])
+#
+#feature_select(housing_features, feature_labels, selected_features)
 
 # Put any import statements you need for this code block here
 from sklearn import cross_validation
